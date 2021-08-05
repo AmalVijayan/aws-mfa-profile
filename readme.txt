@@ -3,14 +3,46 @@ Prerequisites
 -------------
   - AWSCLI v2
   - AWS user profile
+  - Python >=3.6
+  - pip >= 21.1.3
 
 Installation
 ------------
 
-    To TEST
+    Create a virtual environment:
+    -----------------------------
+      - python -m venv <env_name>
+      or
+      - virtualenv <env_name> [Requires virtualenv to be installed]
+
+    Activate virtual environment
+    ----------------------------
+    Linux or OSX:
+      - source <env_name>/bin/activate
+    Windows
+      - <env_name>/Scripts/activate
+    
+    Test installation build: [Optional] 
       - pip install --use-feature=in-tree-build .
 
-  - pip install .
+    Install
+    -------
+    Note : To be executed inside project root where setup.py resides
+    - pip install .
+
+Uninstall
+---------
+
+    Activate virtual environment
+    ----------------------------
+    Linux or OSX:
+      - source <env_name>/bin/activate
+    Windows
+      - <env_name>/Scripts/activate
+
+    Uninstall
+    ---------
+      - pip uninstall awsmfaprofile
 
 Usage
 -----
