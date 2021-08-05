@@ -7,10 +7,11 @@ setup(
     include_package_data=True,
     install_requires=[
         'Click',
+        'boto'
     ],
     entry_points={
         'console_scripts': [
-            'aws-mfa-profile = awsmfaprofile.scripts.hello:hello',
+            'aws-mfa-profile = awsmfaprofile.scripts.create_profile:create',
         ],
     },
 )
