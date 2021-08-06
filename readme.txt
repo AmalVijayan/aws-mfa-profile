@@ -47,30 +47,36 @@ Uninstall
 Usage
 -----
 
-    Usage: aws-mfa-profile [OPTIONS]
-
-    eg. aws-mfa-profile --serial_number="arn:aws:iam::<id>:mfa/<user>" --parent_profile="<>" --auth_token="<>" --write_to_credentials=True
-
+Usage: my-cli [OPTIONS] COMMAND [ARGS]...
 
 Options:
 
-  --parent_profile TEXT           The name of the profile to be used for
-                                  creating the mfa profile. Defaulted to the
-                                  value set to AWS_PROFILE environment
-                                  variable. eg. profile-mfa
-  --serial_number TEXT            The value is either the serial number for a
-                                  hardware device (such as GAHT12345678 ) or
-                                  an Amazon Resource Name (ARN) for a virtual
-                                  device (such as
-                                  arn:aws:iam::123456789012:mfa/user
-                                  [required]
-  --auth_token TEXT               The multidig pin provided by the MFA device,
-                                  if the trust policy of the role being
-                                  assumed requires MFA.  [required]
-  --display BOOLEAN               The directory path of the aws profile eg.
-                                  /home/user/.aws or C:\Users\user\.aws
-  --write_to_credentials BOOLEAN  If set to True will append the generated
-                                  profile to the aws credentials file
-  --config_path TEXT              The directory path of the aws profile eg.
-                                  /home/user/.aws or C:\Users\user\.aws
-  --help                          Show this message and exit.
+  --help  Show this message and exit.
+
+
+    Usage: my-cli awsmfa [OPTIONS]
+
+    eg. my-cli awsmfa --profile=<> --serial-number=arn:aws:iam::<id>:mfa/<user> --token=<> -P -profile-name=<new_profile_name>
+
+Options:
+  -p, --profile TEXT        The name of the profile to be used for creating   
+                            the mfa profile. Defaulted to the value set to    
+                            AWS_PROFILE environment variable.
+  -s, --serial-number TEXT  The value is either the serial number for a       
+                            hardware device (such as GAHT12345678 ) or an     
+                            Amazon Resource Name (ARN) for a virtual device   
+                            (such as arn:aws:iam::123456789012:mfa/user       
+                            [required]
+  -t, --token TEXT          The multidigit pin provided by the MFA device.    
+                            [required]
+  -c, --config-path TEXT    The directory path of the aws profile eg.
+                            /home/user/.aws or C:\Users\user\.aws  
+  -P, --persist             If set, an aws profile is created and appended to 
+                            the aws credentials file. --profile-name option is
+                            required with --persist option. Profile existing  
+                            with the same name will be updated.
+  -n, --profile-name TEXT   The name for the new aws profile to be created.   
+                            Profile existing with the same name will be
+                            updated. NOTE: This argument is mutually inclusive
+                            with persist
+  --help                    Show this message and exit.

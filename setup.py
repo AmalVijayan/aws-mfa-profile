@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='awsmfaprofile',
-    version='0.1.0',
+    version='1.0.0',
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
@@ -11,7 +11,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'aws-mfa-profile = awsmfaprofile.scripts.create_profile:create',
+            'my-cli = awsmfaprofile.scripts.create_profile:cli',
         ],
     },
 )
