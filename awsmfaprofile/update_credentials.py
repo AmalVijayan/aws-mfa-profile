@@ -1,6 +1,6 @@
 import configparser
 import os
-
+from sys import platform
 import click
 
 config = configparser.ConfigParser()
@@ -17,4 +17,8 @@ def write_credentials(config_path, token_dict, profile_name):
         config.write(configfile)
 
     click.echo(f"\nAWS profile created : {profile_name}")
-    click.echo(f"\nExecute the following command to use the the ")
+    click.echo(f"\nExecute the following command to use the profile ")
+    if platform == "linux" or platform == "linux2" or platform == "darwin":
+        click.echo(f"\n export AWS_PROFILE={profile_name}")
+    elif platform == "win32":
+        click.echo(f"\n set AWS_PROFILE={profile_name}")
